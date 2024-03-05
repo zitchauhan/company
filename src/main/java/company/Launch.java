@@ -28,7 +28,11 @@ public class Launch {
        // driver.findElement(By.xpath("ji"));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        String title = driver.getTitle();
+        System.out.println(title);
     }
+    
+    
 
     @AfterClass
     public void tearDown() {
