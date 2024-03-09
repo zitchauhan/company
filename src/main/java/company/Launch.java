@@ -35,6 +35,8 @@ public class Launch {
         String title = driver.getTitle();
         System.out.println("ths is gogole titile  " + title);
         logger.info(title);
+        String st  = driver.getCurrentUrl();
+        System.out.println(st);
     }
     
     
