@@ -16,6 +16,8 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Launch {
     private static WebDriver driver;
     private static final Logger logger = LogManager.getLogger(Launch.class);
@@ -25,39 +27,37 @@ public class Launch {
 
     @BeforeClass
     public void setUp() {
-        // Initialize ExtentSparkReporter
-        extentSparkReporter = new ExtentSparkReporter("C:\\Users\\zitch\\eclipse-workspace_2023\\company\\test-output\\testReport.html");
-
-        // Initialize ExtentReports
+    	
+    	if (driver == null) {
+        extentSparkReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/test-output/testReport.html");
         extentReports = new ExtentReports();
         extentReports.attachReporter(extentSparkReporter);
-
-        // Configure ExtentSparkReporter
+        
         extentSparkReporter.config().setDocumentTitle("Simple Automation Report");
         extentSparkReporter.config().setReportName("TestReport");
         extentSparkReporter.config().setTheme(Theme.STANDARD);
-        extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
-    extentSparkReporter.config().setEncoding("UTF-8");
+        extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a (zzz)");
+        extentSparkReporter.config().setEncoding("UTF-8");
 
-        // Launch ChromeDriver
-      //  System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+    //    System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        logger.info("Driver launched ");
+        logger.info("Driver launched");
         driver.manage().window().maximize();
-        logger.info("Driver maximized ");
+        logger.info("Driver maximized");
     }
-
+    }
     @Test
     public void launchTest() {
         extentTest = extentReports.createTest("Open Chrome and navigate to Google", "Get the title");
-
+        driver.get("https://www.google.com");
+        logger.info("Opened Chrome and navigated to Google");
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        String title = driver.getTitle();
+        logger.info("Title of the page: " + title);
         try {
-            driver.get("https://www.google.com");
-            logger.info("Open Chrome and navigate to Google ");
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-            String title = driver.getTitle();
-            logger.info("Title of the page: " + title);
+            
             extentTest.log(Status.PASS, "Test Passed");
         } catch (Exception e) {
             extentTest.log(Status.FAIL, e);
@@ -67,8 +67,15 @@ public class Launch {
 
     @AfterClass
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
+        try {
+            if (driver != null) {
+                driver.quit();
+                logger.info("WebDriver closed successfully");
+            } else {
+                logger.warn("WebDriver instance is already null");
+            }
+        } catch (Exception e) {
+            logger.error("An error occurred while closing the WebDriver instance: " + e.getMessage());
         }
         extentReports.flush();
     }
