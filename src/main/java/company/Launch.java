@@ -33,7 +33,7 @@ public class Launch {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         String title = driver.getTitle();
-        System.out.println(title);
+        System.out.println("ths is gogole titile  " + title);
         logger.info(title);
     }
     
