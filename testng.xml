@@ -12,9 +12,13 @@
             <class name="company.Launch" />
         </classes>
     </test>
-    <test name="Test2">
+ <!--    <test name="Test2">
         <classes>
             <class name="company.Launch" />
         </classes>
-    </test>
+    </test> -->
+    
+    <listeners>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
 </suite>
