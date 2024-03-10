@@ -49,6 +49,7 @@ public class Launch {
     }
     @Test
     public void launchTest() {
+        try {
         extentTest = extentReports.createTest("Open Chrome and navigate to Google", "Get the title");
         driver.get("https://www.google.com");
         logger.info("Opened Chrome and navigated to Google");
@@ -56,7 +57,7 @@ public class Launch {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         String title = driver.getTitle();
         logger.info("Title of the page: " + title);
-        try {
+ 
             
             extentTest.log(Status.PASS, "Test Passed");
         } catch (Exception e) {
