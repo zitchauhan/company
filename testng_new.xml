@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AutomationTests" >
+    <test name="ChromeTests">
+        <classes>
+            <class name="Launch">
+                <methods>
+                    <include name="launchTest"/>
+                    <include name="testGmailClick"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
