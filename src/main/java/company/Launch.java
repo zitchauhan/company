@@ -83,7 +83,7 @@ public class Launch {
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void TestGmailClick() {
         try {
-            extentTest = extentReports.createTest("Open Chrome and navigate to Google", "Get the title");
+            extentTest = extentReports.createTest("Open Chrome and click on gmail  ", "click on gmail");
             driver.get("https://www.google.com");
             logger.info("Opened Chrome and navigated to Google");
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
