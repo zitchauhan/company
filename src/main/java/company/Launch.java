@@ -87,6 +87,7 @@ public class Launch {
             throw e;
         } finally {
             captureScreenshotAndAttach();
+            logger.info("Screen Shot atteched");
         }
     }
 
@@ -118,6 +119,7 @@ public class Launch {
             throw e;
         } finally {
             captureScreenshotAndAttach();
+            logger.info("Screen Shot atteched");
         }
     }
 
