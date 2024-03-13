@@ -3,14 +3,14 @@
 <suite name="Failed suite [AutomationTests]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="ChromeTests(failed)">
     <classes>
-      <class name="Launch">
+      <class name="LaunchTest">
         <methods>
-          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="launchTest"/>
           <include name="testGmailClick"/>
+          <include name="tearDown"/>
+          <include name="launchTest"/>
         </methods>
-      </class> <!-- Launch -->
+      </class> <!-- LaunchTest -->
     </classes>
   </test> <!-- ChromeTests(failed) -->
 </suite> <!-- Failed suite [AutomationTests] -->

@@ -2,7 +2,7 @@
 <suite name="AutomationTests" >
     <test name="ChromeTests">
         <classes>
-            <class name="Launch">
+            <class name="LaunchTest">
                 <methods>
                     <include name="launchTest"/>
                     <include name="testGmailClick"/>
