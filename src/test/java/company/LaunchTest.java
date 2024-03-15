@@ -1,7 +1,5 @@
 package company;
 
-
-
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -31,9 +29,9 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Launch {
+public class LaunchTest {
     private static WebDriver driver;
-    private static final Logger logger = LogManager.getLogger(Launch.class);
+    private static final Logger logger = LogManager.getLogger(LaunchTest.class);
     private static ExtentSparkReporter extentSparkReporter;
     private static ExtentReports extentReports;
     private static ExtentTest extentTest;
@@ -41,41 +39,33 @@ public class Launch {
 
     @BeforeClass
     public void setUp() {
-        if (driver == null) {
-            extentSparkReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/test-output/testReport.html");
-            extentReports = new ExtentReports();
-            extentReports.attachReporter(extentSparkReporter);
+        extentSparkReporter = new ExtentSparkReporter(
+                System.getProperty("user.dir") + "/test-output/testReport.html");
+        extentReports = new ExtentReports();
+        extentReports.attachReporter(extentSparkReporter);
 
-            extentSparkReporter.config().setDocumentTitle("Simple Automation Report");
-            extentSparkReporter.config().setReportName("TestReport");
-            extentSparkReporter.config().setTheme(Theme.STANDARD);
-            extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a (zzz)");
-            extentSparkReporter.config().setEncoding("UTF-8");
+        extentSparkReporter.config().setDocumentTitle("Simple Automation Report");
+        extentSparkReporter.config().setReportName("TestReport");
+        extentSparkReporter.config().setTheme(Theme.STANDARD);
+        extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a (zzz)");
+        extentSparkReporter.config().setEncoding("UTF-8");
 
-            WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
 
-            driver = new ChromeDriver();
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-
-            logger.info("Driver launched");
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            driver.manage().window().maximize();
-            logger.info("Driver maximized");
-
-            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        }
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void launchTest() {
+        extentTest = extentReports.createTest("Open Chrome and navigate to Google", "Get the title");
         try {
-            extentTest = extentReports.createTest("Open Chrome and navigate to Google", "Get the title");
             driver.get("https://www.google.com");
             logger.info("Opened Chrome and navigated to Google");
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
             String title = driver.getTitle();
-            System.out.println(title);
             logger.info("Title of the page: " + title);
 
             SoftAssert softAssert = new SoftAssert();
@@ -89,29 +79,20 @@ public class Launch {
             throw e;
         } finally {
             captureScreenshotAndAttach();
-            logger.info("Screen Shot atteched");
+            logger.info("Screenshot attached");
         }
     }
 
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void TestGmailClick() {
+        extentTest = extentReports.createTest("Open Chrome and click on Gmail", "Click on Gmail link");
         try {
-            extentTest = extentReports.createTest("Open Chrome and click on gmail", "click on gmail");
             driver.get("https://www.google.com");
             logger.info("Opened Chrome and navigated to Google");
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-            String title = driver.getTitle();
-            System.out.println(title);
-            logger.info("Title of the page: " + title);
 
-            SoftAssert softAssert = new SoftAssert();
-            softAssert.assertEquals(title, "Google");
-            softAssert.assertAll();
-            WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'Gmail')]"));
-
-            wait.until(ExpectedConditions.visibilityOf(ele));
-            ele.click();
+            WebElement gmailLink = driver.findElement(By.xpath("//a[contains(text(), 'Gmail')]"));
+            wait.until(ExpectedConditions.visibilityOf(gmailLink));
+            gmailLink.click();
 
             logger.info("Clicked on Gmail");
             extentTest.log(Status.PASS, "Test Passed");
@@ -121,7 +102,7 @@ public class Launch {
             throw e;
         } finally {
             captureScreenshotAndAttach();
-            logger.info("Screen Shot atteched");
+            logger.info("Screenshot attached");
         }
     }
 

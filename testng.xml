@@ -9,7 +9,7 @@
 
     <test name="Test1">
         <classes>
-            <class name="company.Launch" />
+            <class name="company.LaunchTest" />
         </classes>
     </test>
 

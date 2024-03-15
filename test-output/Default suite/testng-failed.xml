@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="CrossB.CrossBrowserTest">
+      <class name="Fluent">
         <methods>
-          <include name="Lauchh"/>
+          <include name="launch"/>
         </methods>
-      </class> <!-- CrossB.CrossBrowserTest -->
+      </class> <!-- Fluent -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
