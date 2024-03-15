@@ -15,8 +15,7 @@
 					
 					 <outputDirectory>
 						 
-						 ${project.build.directory}
-						 <!--/myjar-directory-->
+						 ${project.build.directory} <!--/myjar-directory-->
 						 
 					 </outputDirectory>
            

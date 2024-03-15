@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-
-<suite name="Suite" parallel="tests" thread-count="2">
-<!--     <listeners>
-        <listener class-name="company.RetryAnalyzer"/>
-        <listener class-name="org.testng.reporters.FailedReporter"/>
-    </listeners> -->
-
-    <test name="Test1">
-        <classes>
-            <class name="company.LaunchTest" />
-        </classes>
-    </test>
-
-    <test name="Test2">
-        <classes>
-            <class name="CrossB.CrossBrowserTest" />
-        </classes>
-    </test> 
-</suite>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <!-- Class names to be executed -->
+      <class name="company.LaunchTest"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
