@@ -1,4 +1,4 @@
-	<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -12,14 +12,17 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.12.1</version>
 				<configuration>
-					
-					 <outputDirectory>
-						 
-						 ${project.build.directory} <!--/myjar-directory-->
-						 
-					 </outputDirectory>
-           
-				<!-- <source>1.8</source>
+
+					<outputDirectory> 
+						
+						${project.build.directory} <!--/myjar-directory-->
+
+					</outputDirectory>
+					<!--
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					-->
+					<!-- <source>1.8</source>
 					 <target>1.8</target> -->
 					<encoding>UTF-8</encoding>
 				</configuration>
@@ -42,7 +45,7 @@
 		</plugins>
 	</build>
 
-<!-- this is for local repor-->
+	<!-- this is for local repor-->
 	<distributionManagement>
 		<repository>
 			<id>local-repo</id>
@@ -52,6 +55,15 @@
 
 
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>5.4.0</version>
+			<scope>test</scope>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
