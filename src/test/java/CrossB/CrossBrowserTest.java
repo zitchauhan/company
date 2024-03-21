@@ -48,7 +48,7 @@ public class CrossBrowserTest {
 		return driver;
 	}
 
-	@Test
+	@Test(priority = 1)
 	public static void Lauchh() {
 
 		// Perform tests on IE driver

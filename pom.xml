@@ -36,8 +36,12 @@
 				use -->
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						 <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile> <!-- Adjust the path to your testng.xml file -->
+					<!--	<suiteXmlFile>testng.xml</suiteXmlFile>-->
 					</suiteXmlFiles>
+					 <testSourceDirectory>
+						 src/test/java
+					</testSourceDirectory>
 				</configuration>
 			</plugin>
 

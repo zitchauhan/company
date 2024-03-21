@@ -1,10 +1,13 @@
 package company;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,25 +16,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.apache.commons.io.FileUtils;
-import java.io.File;
-import java.io.IOException;
-import java.time.Duration;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class LaunchTest {
 
+    private static final Logger logger = LogManager.getLogger(LaunchTest.class);
+    
     private WebDriver driver;
     private WebDriverWait wait;
     private ExtentReports extentReports;
-    private ExtentTest extentTest;
+    private ExtentTest extentTest; 
 
-    @BeforeClass
+    @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
+        
+        logger.info("WebDriver is launched");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -47,7 +57,7 @@ public class LaunchTest {
         extentSparkReporter.config().setEncoding("UTF-8");
     }
 
-    @Test
+    @Test(priority = 1)
     public void launchTest() {
         extentTest = extentReports.createTest("Open Chrome and navigate to Google", "Get the title");
         try {
@@ -69,14 +79,15 @@ public class LaunchTest {
         }
     }
 
-    @Test
+    @Test(priority = 2)
     public void testGmailClick() {
         extentTest = extentReports.createTest("Open Chrome and click on Gmail", "Click on Gmail link");
         try {
             driver.get("https://www.google.com");
             extentTest.log(Status.INFO, "Opened Chrome and navigated to Google");
 
-            WebElement gmailLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Gmail')]")));
+            WebElement gmailLink = wait
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Gmail')]")));
             gmailLink.click();
 
             extentTest.log(Status.PASS, "Test Passed");
@@ -90,7 +101,7 @@ public class LaunchTest {
         }
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -110,6 +121,7 @@ public class LaunchTest {
     private String captureScreenshot() throws IOException {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String screenshotPath = "./test-output/screenshots/" + System.currentTimeMillis() + ".png";
+        logger.info( "ScreeShort");
         FileUtils.copyFile(screenshot, new File(screenshotPath));
         return screenshotPath;
     }
