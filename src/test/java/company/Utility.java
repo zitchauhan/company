@@ -9,7 +9,7 @@
  * public class Utility {
  * 
  * public static String captureScreenshot(WebDriver driver, ITestResult result)
- * 
+ *  
  * { String screenshotPath = ""; try { File screenshot = ((TakesScreenshot)
  * driver).getScreenshotAs(OutputType.FILE); screenshotPath =
  * "./test-output/screenshots/" + result.getName() + "_" +
