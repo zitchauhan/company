@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-23T01:19:47 IST" name="Suite" finished-at="2024-03-23T01:19:58 IST" duration-ms="11023">
+  <suite started-at="2024-03-23T02:20:01 IST" name="Default suite" finished-at="2024-03-23T02:20:12 IST" duration-ms="10868">
     <groups>
     </groups>
-    <test started-at="2024-03-23T01:19:47 IST" name="Test" finished-at="2024-03-23T01:19:58 IST" duration-ms="11023">
+    <test started-at="2024-03-23T02:20:01 IST" name="Default test" finished-at="2024-03-23T02:20:12 IST" duration-ms="10868">
       <class name="company.LaunchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:company.LaunchTest@4b20ca2b]" started-at="2024-03-23T01:19:47 IST" name="setUp" finished-at="2024-03-23T01:19:52 IST" duration-ms="4816" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:company.LaunchTest@68b6f0d6]" started-at="2024-03-23T02:20:01 IST" name="setUp" finished-at="2024-03-23T02:20:05 IST" duration-ms="3933" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="launchTest()[pri:1, instance:company.LaunchTest@4b20ca2b]" started-at="2024-03-23T01:19:52 IST" name="launchTest" finished-at="2024-03-23T01:19:54 IST" duration-ms="2320" status="PASS">
+        <test-method signature="launchTest()[pri:1, instance:company.LaunchTest@68b6f0d6]" started-at="2024-03-23T02:20:05 IST" name="launchTest" finished-at="2024-03-23T02:20:08 IST" duration-ms="2452" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchTest -->
-        <test-method signature="testGmailClick()[pri:2, instance:company.LaunchTest@4b20ca2b]" started-at="2024-03-23T01:19:54 IST" name="testGmailClick" finished-at="2024-03-23T01:19:58 IST" duration-ms="3314" status="PASS">
+        <test-method signature="testGmailClick()[pri:2, instance:company.LaunchTest@68b6f0d6]" started-at="2024-03-23T02:20:08 IST" name="testGmailClick" finished-at="2024-03-23T02:20:11 IST" duration-ms="3914" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGmailClick -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:company.LaunchTest@4b20ca2b]" started-at="2024-03-23T01:19:58 IST" name="tearDown" finished-at="2024-03-23T01:19:58 IST" duration-ms="432" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:company.LaunchTest@68b6f0d6]" started-at="2024-03-23T02:20:11 IST" name="tearDown" finished-at="2024-03-23T02:20:12 IST" duration-ms="514" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- company.LaunchTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

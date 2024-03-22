@@ -26,24 +26,46 @@
 				</configuration>
 			</plugin>
 
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.2.5</version> <!-- Specify the version you want to
-				use -->
+				<version>3.2.5</version> <!-- Specify the version of the Surefire
+				plugin -->
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile> <!--
-						Adjust the path to your testng.xml file -->
-						<!--	<suiteXmlFile>testng.xml</suiteXmlFile>-->
+						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+						<!-- Specify the path to your TestNG suite XML file -->
+						<!-- Adjust the path if needed -->
+					</suiteXmlFiles>
+					<testSourceDirectory>src/test/java</testSourceDirectory>
+					<!-- Specify the directory containing your test source files -->
+				</configuration>
+			</plugin>
+
+
+			<!--
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.5</version>  Specify the version you want to
+				use 
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>
+							src/test/resources/testng.xml
+							
+						</suiteXmlFile> 
+						
+						Adjust the path to your testng.xml file 
+							<suiteXmlFile>testng.xml</suiteXmlFile>
+						
 					</suiteXmlFiles>
 					<testSourceDirectory>
 						src/test/java
 					</testSourceDirectory>
 				</configuration>
 			</plugin>
-
+-->
 
 		</plugins>
 	</build>
@@ -60,12 +82,7 @@
 	<dependencies>
 
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>5.4.0</version>
-			<scope>test</scope>
-		</dependency>
+		
 
 
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
@@ -86,6 +103,15 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.23.0</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.5.3</version>
+    <scope>test</scope>
+</dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
