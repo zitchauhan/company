@@ -13,9 +13,7 @@
 				<version>3.12.1</version>
 				<configuration>
 
-					<outputDirectory> 
-						
-						${project.build.directory} <!--/myjar-directory-->
+					<outputDirectory> ${project.build.directory} <!--/myjar-directory-->
 
 					</outputDirectory>
 					<!--
@@ -36,11 +34,12 @@
 				use -->
 				<configuration>
 					<suiteXmlFiles>
-						 <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile> <!-- Adjust the path to your testng.xml file -->
-					<!--	<suiteXmlFile>testng.xml</suiteXmlFile>-->
+						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile> <!--
+						Adjust the path to your testng.xml file -->
+						<!--	<suiteXmlFile>testng.xml</suiteXmlFile>-->
 					</suiteXmlFiles>
-					 <testSourceDirectory>
-						 src/test/java
+					<testSourceDirectory>
+						src/test/java
 					</testSourceDirectory>
 				</configuration>
 			</plugin>
