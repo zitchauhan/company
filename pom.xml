@@ -12,8 +12,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.12.1</version>
 				<configuration>
-					<outputDirectory>${project.build.directory}/myjar-directory</outputDirectory>
-					<source>1.8</source>
+				<!--	<outputDirectory>${project.build.directory}/myjar-directory</outputDirectory>
+-->					<source>1.8</source>
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
