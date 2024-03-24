@@ -42,7 +42,7 @@ public class CrossBrowserTest {
 			break;
 		case "ie":
 			DesiredCapabilities capabilities = new DesiredCapabilities();
-			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, browserName);
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
@@ -53,13 +53,13 @@ public class CrossBrowserTest {
 		return driver;
 	}
 
-	@Test 
+	@Test
 	public static void Lauchh() {
 
 		// Perform tests on IE driver
 
 		WebDriver chromeDriver = initializeDriver("chrome");
-		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		chromeDriver.get("https://www.google.com");
 		chromeDriver.quit();
 
@@ -67,14 +67,14 @@ public class CrossBrowserTest {
 
 		WebDriver firefoxDriver = initializeDriver("firefox");
 		FirefoxOptions options = new FirefoxOptions();
-		firefoxDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		firefoxDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 		firefoxDriver.get("https://www.google.com");
 		firefoxDriver.quit();
 		// Perform tests on Firefox driver
 
 		WebDriver edgeDriver = initializeDriver("edge");
-		edgeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		edgeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		edgeDriver.get("https://www.google.com");
 		// Perform tests on Edge driver
 		edgeDriver.quit();
