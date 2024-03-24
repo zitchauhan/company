@@ -59,7 +59,7 @@ public class CrossBrowserTest {
 		// Perform tests on IE driver
 
 		WebDriver chromeDriver = initializeDriver("chrome");
-		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		chromeDriver.get("https://www.google.com");
 		chromeDriver.quit();
 
@@ -67,14 +67,14 @@ public class CrossBrowserTest {
 
 		WebDriver firefoxDriver = initializeDriver("firefox");
 		FirefoxOptions options = new FirefoxOptions();
-		firefoxDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		firefoxDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 		firefoxDriver.get("https://www.google.com");
 		firefoxDriver.quit();
 		// Perform tests on Firefox driver
 
 		WebDriver edgeDriver = initializeDriver("edge");
-		edgeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		edgeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		edgeDriver.get("https://www.google.com");
 		// Perform tests on Edge driver
 		edgeDriver.quit();
