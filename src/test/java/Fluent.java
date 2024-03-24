@@ -31,6 +31,6 @@ public class Fluent
 	  WebElement  ele = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='iblpc']")));
 			
 	
-	  driver.close();
+	  driver.quit();
 	}
 }
