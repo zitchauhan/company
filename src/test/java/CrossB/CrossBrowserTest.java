@@ -1,6 +1,7 @@
 package CrossB;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.sql.DriverManager;
 import java.time.Duration;
 
@@ -27,20 +28,24 @@ public class CrossBrowserTest {
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+			driver.manage().window().maximize();
 			break;
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+			driver.manage().window().maximize();
 			break;
 		case "edge":
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+			driver.manage().window().maximize();
 			break;
 		case "ie":
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
+			driver.manage().window().maximize();
 			break;
 		default:
 			System.out.println("Invalid browser name provided.");
@@ -48,7 +53,7 @@ public class CrossBrowserTest {
 		return driver;
 	}
 
-	@Test(priority = 1)
+	@Test
 	public static void Lauchh() {
 
 		// Perform tests on IE driver

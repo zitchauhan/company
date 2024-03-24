@@ -1,5 +1,7 @@
 package company;
 
+import org.testng.annotations.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -19,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -37,7 +39,7 @@ public class LaunchTest {
     private ExtentReports extentReports;
     private ExtentTest extentTest; 
 
-    @BeforeTest
+	@BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         
@@ -57,18 +59,21 @@ public class LaunchTest {
         extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a (zzz)");
         extentSparkReporter.config().setEncoding("UTF-8");
     }
-
-    @Test(priority = 1)
+    
+    @Test(priority = 1 , retryAnalyzer = RetryAnalyzer.class)
     public void launchTest() {
         extentTest = extentReports.createTest("Open Chrome and navigate to Google", "Get the title");
         try {
             driver.get("https://www.google.com");
+            
             extentTest.log(Status.INFO, "Opened Chrome and navigated to Google");
 
             String title = driver.getTitle();
+            
             extentTest.log(Status.INFO, "Title of the page: " + title);
 
             Assert.assertEquals(title, "Google", "Page title is not as expected");
+            
             extentTest.log(Status.PASS, "Test Passed");
 
         } catch (AssertionError e) {
@@ -80,7 +85,7 @@ public class LaunchTest {
         }
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2 , retryAnalyzer = RetryAnalyzer.class)
     public void testGmailClick() {
         extentTest = extentReports.createTest("Open Chrome and click on Gmail", "Click on Gmail link");
         try {
@@ -102,7 +107,8 @@ public class LaunchTest {
         }
     }
 
-    @AfterTest
+ 
+	@AfterTest
     public void tearDown() {
         if (driver != null) {
             driver.quit();

@@ -1,4 +1,5 @@
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -30,5 +31,6 @@ public class Fluent
 	  WebElement  ele = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='iblpc']")));
 			
 	
+	  driver.close();
 	}
 }
