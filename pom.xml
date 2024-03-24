@@ -12,8 +12,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.12.1</version>
 				<configuration>
-				<!--	<outputDirectory>${project.build.directory}/myjar-directory</outputDirectory>
--->					<source>1.8</source>
+					<!--
+					<outputDirectory>${project.build.directory}/myjar-directory</outputDirectory>
+-->
+					<source>1.8</source>
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
@@ -39,6 +41,17 @@
 		</repository>
 	</distributionManagement>
 	<dependencies>
+
+		<!-- jdbc driver latest version-->
+		<!--
+		https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>12.6.1.jre11</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
@@ -54,7 +67,7 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.23.0</version>
 		</dependency>
-		
+
 		<!-- slf4 j-->
 		<!--<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -63,7 +76,7 @@
 			<scope>test</scope>
 		</dependency>
 		-->
-		
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>

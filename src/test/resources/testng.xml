@@ -5,7 +5,7 @@
 		<classes>
 			<class name="Fluent" />
 			<class name="company.LaunchTest" />
-		<!-- 	<class name="CrossB.CrossBrowserTest" /> -->
+			<class name="jdbc.JDBCExample" />
 			<class name="NewTest" />
 		</classes>
 	</test> <!-- Test -->
