@@ -1,5 +1,7 @@
 package CrossB;
 
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import java.sql.DriverManager;
@@ -21,7 +23,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class CrossBrowserTest {
 
 	static WebDriverWait wait;
-
+	@BeforeTest
+	@Parameters("browser")
 	public static WebDriver initializeDriver(String browserName) {
 		WebDriver driver = null;
 		switch (browserName.toLowerCase()) {
