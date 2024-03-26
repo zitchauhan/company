@@ -20,24 +20,50 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.2.5</version>
 				<configuration>
+					
+					<parallel>methods</parallel> <!-- Parallelize by test methods -->
+					<threadCount>4</threadCount> <!-- Number of parallel threads -->
+					<perCoreThreadCount>true</perCoreThreadCount> <!-- Use threads per CPU core -->
+
 					<useSystemClassLoader>false</useSystemClassLoader>
+				
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<testSourceDirectory>src/test/java</testSourceDirectory>
+				
+				
 				</configuration>
 			</plugin>
+			
+			
+
+		<!--	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M5</version>  Use the latest version 
+				<configuration>
+					<parallel>methods</parallel>  Parallelize by test methods 
+					<threadCount>4</threadCount>  Number of parallel threads 
+					<perCoreThreadCount>true</perCoreThreadCount>  Use
+					threads per CPU core 
+				</configuration>
+			</plugin>-->
+
+			
+
 		</plugins>
 	</build>
 	<distributionManagement>
 		<repository>
 			<id>local-repo</id>
-			<url>file://${user.home}/.m2/repository</url>
+			<url>file://${user.home}/eclipse-workspace_2023/company/build</url>
 		</repository>
 	</distributionManagement>
 	<dependencies>

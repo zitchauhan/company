@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-25T02:22:41 IST" name="Default suite" finished-at="2024-03-25T02:22:44 IST" duration-ms="3255">
+  <suite started-at="2024-03-26T13:38:40 IST" name="Default suite" finished-at="2024-03-26T13:39:01 IST" duration-ms="20622">
     <groups>
     </groups>
-    <test started-at="2024-03-25T02:22:41 IST" name="Default test" finished-at="2024-03-25T02:22:44 IST" duration-ms="3255">
-      <class name="jdbc.JDBCExample">
-        <test-method signature="jdbcConnection()[pri:0, instance:jdbc.JDBCExample@1bb5a082]" started-at="2024-03-25T02:22:41 IST" name="jdbcConnection" finished-at="2024-03-25T02:22:44 IST" duration-ms="3158" status="PASS">
+    <test started-at="2024-03-26T13:38:40 IST" name="Default test" finished-at="2024-03-26T13:39:01 IST" duration-ms="20622">
+      <class name="company.SampleForTest">
+        <test-method signature="demotes5()[pri:0, instance:company.SampleForTest@74235045]" started-at="2024-03-26T13:38:40 IST" name="demotes5" finished-at="2024-03-26T13:38:45 IST" duration-ms="4597" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- jdbcConnection -->
-      </class> <!-- jdbc.JDBCExample -->
+        </test-method> <!-- demotes5 -->
+        <test-method signature="demotest1()[pri:0, instance:company.SampleForTest@74235045]" started-at="2024-03-26T13:38:45 IST" name="demotest1" finished-at="2024-03-26T13:38:48 IST" duration-ms="3155" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demotest1 -->
+        <test-method signature="demotest2()[pri:0, instance:company.SampleForTest@74235045]" started-at="2024-03-26T13:38:48 IST" name="demotest2" finished-at="2024-03-26T13:38:51 IST" duration-ms="3252" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demotest2 -->
+        <test-method signature="demotest3()[pri:0, instance:company.SampleForTest@74235045]" started-at="2024-03-26T13:38:51 IST" name="demotest3" finished-at="2024-03-26T13:38:54 IST" duration-ms="2783" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demotest3 -->
+        <test-method signature="demotest4()[pri:0, instance:company.SampleForTest@74235045]" started-at="2024-03-26T13:38:54 IST" name="demotest4" finished-at="2024-03-26T13:38:59 IST" duration-ms="4400" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demotest4 -->
+        <test-method signature="demotest6()[pri:0, instance:company.SampleForTest@74235045]" started-at="2024-03-26T13:38:59 IST" name="demotest6" finished-at="2024-03-26T13:39:01 IST" duration-ms="2367" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demotest6 -->
+      </class> <!-- company.SampleForTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

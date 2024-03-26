@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-	<test name="Test">
-		<classes>
-			<class name="Fluent" />
-			<class name="company.LaunchTest" />
-			<class name="jdbc.JDBCExample" />
-			<class name="NewTest" />
-		</classes>
-	</test> <!-- Test -->
+<suite parallel="methods" name="Suite">	
+
+  <test thread-count="5" parallel="methods" name="Test">
+    
+    <classes>
+
+      <class name="company.SampleForTest"/>
+
+    </classes>
+    
+  </test> <!-- Test -->
+  
 </suite> <!-- Suite -->
- 
