@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-25T01:21:55 IST" name="Default suite" finished-at="2024-03-25T01:21:57 IST" duration-ms="1866">
+  <suite started-at="2024-03-25T02:22:41 IST" name="Default suite" finished-at="2024-03-25T02:22:44 IST" duration-ms="3255">
     <groups>
     </groups>
-    <test started-at="2024-03-25T01:21:55 IST" name="Default test" finished-at="2024-03-25T01:21:57 IST" duration-ms="1866">
+    <test started-at="2024-03-25T02:22:41 IST" name="Default test" finished-at="2024-03-25T02:22:44 IST" duration-ms="3255">
       <class name="jdbc.JDBCExample">
-        <test-method signature="jdbcConnection()[pri:0, instance:jdbc.JDBCExample@1bb5a082]" started-at="2024-03-25T01:21:55 IST" name="jdbcConnection" finished-at="2024-03-25T01:21:57 IST" duration-ms="1815" status="PASS">
+        <test-method signature="jdbcConnection()[pri:0, instance:jdbc.JDBCExample@1bb5a082]" started-at="2024-03-25T02:22:41 IST" name="jdbcConnection" finished-at="2024-03-25T02:22:44 IST" duration-ms="3158" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- jdbcConnection -->

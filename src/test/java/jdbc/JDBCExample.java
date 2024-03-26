@@ -39,10 +39,12 @@ public class JDBCExample {
 			// Execute the SQL query
 			resultSet = statement.executeQuery("SELECT * FROM LoginPageElements");
 
-			List<ResultSet> rs = new ArrayList<>();
-			rs.add(resultSet);
-
-			System.out.println(rs);
+			/*
+			 * List<ResultSet> rs = new ArrayList<>(); rs.add(resultSet);
+			 * 
+			 * System.out.println(rs);
+			 * 
+			 */
 
 			// Process the result set
 			while (resultSet.next()) {
